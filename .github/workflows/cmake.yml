@@ -20,19 +20,16 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.7
-
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
-      run: sudo apt-get -qq update && sudo apt-get -qq install -y --no-install-recommends vim nano less g++-arm-linux-gnueabihf cmake
+      run: sudo apt install python3 && sudo apt-get -qq update && sudo apt-get -qq install -y --no-install-recommends vim nano less g++-arm-linux-gnueabihf cmake
 
   # - name: CMake
       # run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
-
+    - name: Setting0
+      run: pip install conan
+      
     - name: Setting1
       run: mkdir build && cd build
 
