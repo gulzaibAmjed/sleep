@@ -62,4 +62,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
       name: my-artifact
-      path: ${{github.workspace}} # or path/to/artifact
+      path: bin/sleep # or path/to/artifact
