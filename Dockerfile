@@ -11,8 +11,8 @@ RUN sudo apt-get -qq update \
 RUN git clone https://github.com/AnasJavaidDevops/sleep
 RUN conan profile new default --detect --force
 
-# Copies your code file from your action repository to the filesystem path `/` of the container
-COPY entrypoint.sh /entrypoint.sh
-
-# Executes `entrypoint.sh` when the Docker container starts up
-ENTRYPOINT ["/entrypoint.sh"]
+RUN mkdir build && cd build
+RUN conan install ..
+RUN cmake .. -DCMAKE_BUILD_TYPE=Release
+RUN cmake --build .
+RUN bin/sleep
