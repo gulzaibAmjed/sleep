@@ -12,4 +12,4 @@ RUN git clone https://github.com/AnasJavaidDevops/sleep
 RUN conan profile new default --detect --force
 
 RUN cd sleep
-RUN ./entrypoint.sh
+RUN ls -a
