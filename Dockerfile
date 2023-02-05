@@ -11,8 +11,5 @@ RUN sudo apt-get -qq update \
 RUN git clone https://github.com/AnasJavaidDevops/sleep
 RUN conan profile new default --detect --force
 
-RUN mkdir build && cd build
-RUN conan install ..
-RUN cmake .. -DCMAKE_BUILD_TYPE=Release
-RUN cmake --build .
-RUN bin/sleep
+RUN cd sleep
+RUN ./entrypoint.sh
