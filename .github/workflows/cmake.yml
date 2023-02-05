@@ -40,7 +40,7 @@ jobs:
       run: cmake ${{github.workspace}} -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Setting7
-      run: cmake --build ${{github.workspace}}/build
+      run: cmake --build .
      
     - name: Setting8
       run: bin/sleep
