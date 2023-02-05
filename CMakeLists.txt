@@ -8,3 +8,7 @@ conan_basic_setup(TARGETS)
 add_executable(sleep sleep.cpp)
 
 target_link_libraries(sleep CONAN_PKG::poco)
+
+enable_testing()
+
+add_test(NAME myTest COMMAND sleep)
