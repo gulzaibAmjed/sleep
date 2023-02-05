@@ -29,20 +29,18 @@ jobs:
       run: conan profile update settings.compiler.libcxx=libstdc++11 default
       
     - name: Setting3
-      run: mkdir build 
+      run: mkdir build && cd build
 
     - name: Setting4
-      run: conan install ${{github.workspace}}
+      run: conan install ${{github.workspace}}/build
       
-    - name: Setting5
-      run: cd build
       
     - name: Setting6
       #run: cmake .. -DCMAKE_BUILD_TYPE=Release
-      run: cmake .. -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      run: cmake ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Setting7
-      run: cmake --build .
+      run: cmake --build ${{github.workspace}}/build
      
     - name: Setting8
       run: bin/sleep
