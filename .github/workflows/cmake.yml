@@ -28,8 +28,8 @@ jobs:
     - name: Setting2
       run: conan profile update settings.compiler.libcxx=libstdc++11 default
       
-    - name: Setting3
-      run: mkdir build && cd build
+     - name: Setting3
+       run: ls -a
 
     - name: Setting4
       run: conan install ..
