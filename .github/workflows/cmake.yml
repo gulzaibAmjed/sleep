@@ -59,7 +59,7 @@ jobs:
       # Execute tests defined by the CMake configuration.
       run: ctest -C ${{env.BUILD_TYPE}}
 
-   - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v3
       with:
       name: my-artifact
       path: ${{github.workspace}} # or path/to/artifact
