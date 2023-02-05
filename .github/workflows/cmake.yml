@@ -34,7 +34,7 @@ jobs:
       run: mkdir build && cd build
 
     - name: Setting2
-      run: conan install ..
+      run: conan install ${{github.workspace}}
       
     - name: Setting3
       run: cmake .. -DCMAKE_BUILD_TYPE=Release
