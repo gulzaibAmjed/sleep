@@ -23,18 +23,24 @@ jobs:
       run: pip install conan
       
     - name: Setting1
-      run: mkdir build && cd build
-
+      run: conan profile new default --detect --force
+      
     - name: Setting2
-      run: conan install ..
+      run: conan profile update settings.compiler.libcxx=libstdc++11 default
       
     - name: Setting3
-      run: cmake .. -DCMAKE_BUILD_TYPE=Release
+      run: mkdir build && cd build
 
     - name: Setting4
+      run: conan install ..
+      
+    - name: Setting5
+      run: cmake .. -DCMAKE_BUILD_TYPE=Release
+
+    - name: Setting6
       run: cmake --build .
      
-    - name: Setting5
+    - name: Setting7
       run: bin/sleep
 
     # - name: Build
