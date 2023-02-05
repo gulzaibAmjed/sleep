@@ -25,17 +25,29 @@ jobs:
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
-      run: sudo apt-get -qq update && sudo apt-get -qq install -y --no-install-recommends vim nano less g++-arm-linux-gnueabihf cmakev3
-      # run: mkdir build && cd build
-      # run: conan install ..
-      # run: cmake .. -DCMAKE_BUILD_TYPE=Release
-      # run: cmake --build .
-      # run: bin/sleep
+      run: sudo apt-get -qq update && sudo apt-get -qq install -y --no-install-recommends vim nano less g++-arm-linux-gnueabihf cmake
+
+  # - name: Build CMake
       # run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
-    - name: Build
-      # Build your program with the given configuration
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+    - name: Setting1
+      run: mkdir build && cd build
+
+    - name: Setting2
+      run: conan install ..
+      
+    - name: Setting3
+      run: cmake .. -DCMAKE_BUILD_TYPE=Release
+
+    - name: Setting4
+      run: cmake --build .
+     
+    - name: Setting5
+      run: bin/sleep
+
+    # - name: Build
+      # # Build your program with the given configuration
+      # run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Test
       working-directory: ${{github.workspace}}/build
